@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anima Romana</title>
+<meta name="description" content="Anima Romana. A Roman bakery in the Upper Beaches, Toronto.">
+<link rel="preconnect" href="https://images.pexels.com">
+<link rel="preload" href="fonts/cormorant-garamond-300-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="corner mono" aria-label="Site">
+  <a href="#banco">Il banco</a>
+  <a href="#sera">Visit</a>
+</nav>
+
+<main>
+  <!-- I. Alba -->
+  <section class="scene alba" aria-label="Anima Romana">
+    <figure class="photo">
+      <img src="https://images.pexels.com/photos/39351878/pexels-photo-39351878.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200" alt="The ancient Roman Forum in morning light" fetchpriority="high">
+    </figure>
+    <h1><span>Anima</span><span>Romana</span></h1>
+    <p class="where mono">Forno romano &middot; Upper Beaches, Toronto</p>
+    <p class="hello disp" aria-hidden="true">Buongiorno.</p>
+  </section>
+
+  <!-- II. Travertino -->
+  <section class="scene trav" aria-labelledby="t-trav">
+    <p class="lede" data-rv><span class="mono">Il pane</span>Pizza bianca still warm from the tray. Maritozzi split and filled with cream while you wait. A crust that crackles when you press it. We bake the way the neighbourhood forni of Rome do, and we open early.</p>
+    <figure class="photo">
+      <img src="https://images.pexels.com/photos/30895274/pexels-photo-30895274.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="A scored artisan loaf on a wooden table" loading="lazy">
+      <figcaption class="mono">Pane casereccio &middot; 1&nbsp;kg</figcaption>
+    </figure>
+    <h2 id="t-trav" class="disp" data-rv>Bread the way Rome wakes&nbsp;up.</h2>
+  </section>
+
+  <!-- III. Il forno -->
+  <section class="scene forno" aria-labelledby="t-forno" id="forno">
+    <div class="stick">
+      <div class="track">
+        <div class="f-intro">
+          <p class="mono" id="t-forno">Il forno</p>
+          <p class="disp it">Most of the work happens while the street is still asleep.</p>
+        </div>
+        <figure class="f-oven">
+          <div class="photo"><img src="https://images.pexels.com/photos/30678460/pexels-photo-30678460.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800" alt="Bread baking in a wood-fired oven, with a wooden peel" loading="lazy"></div>
+          <figcaption class="mono">The oven at 04:20</figcaption>
+        </figure>
+        <ol class="f-times">
+          <li><time>04:00</time><span>The oven comes up to heat.</span></li>
+          <li><time>04:30</time><span>Yesterday&rsquo;s dough is stretched onto long trays.</span></li>
+          <li><time>05:40</time><span>Pizza bianca goes in with olive oil and coarse salt, nothing else.</span></li>
+          <li><time>06:45</time><span>Maritozzi are split and filled with cream.</span></li>
+          <li><time>07:00</time><span>The door opens.</span></li>
+        </ol>
+        <figure class="f-flour">
+          <div class="photo"><img src="https://images.pexels.com/photos/784633/pexels-photo-784633.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="A baker clapping flour off his hands over dough" loading="lazy"></div>
+          <figcaption class="mono">Flour, before anything else</figcaption>
+        </figure>
+        <div class="f-wait"><p class="disp">Bread is mostly waiting.</p></div>
+        <figure class="f-bianca">
+          <div class="photo"><img src="https://images.pexels.com/photos/12335533/pexels-photo-12335533.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Freshly baked focaccia with rosemary and salt" loading="lazy"></div>
+          <figcaption class="mono">Out of the oven</figcaption>
+        </figure>
+        <div class="f-tail" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IV. Il banco -->
+  <section class="scene banco" id="banco" aria-labelledby="t-banco">
+    <header>
+      <h2 id="t-banco" class="disp">Il banco</h2>
+      <p class="note">Pizza al taglio is cut to the size you point at, then weighed. It is priced all&rsquo;etto, per 100&nbsp;grams.</p>
+    </header>
+
+    <div class="col-a">
+      <div class="group">
+        <h3><b>Pizza al taglio</b><span class="mono">per 100 g</span></h3>
+        <ul>
+          <li class="item"><span class="n">Bianca</span><span class="lead"></span><span class="p">3.20</span><span class="d">Olive oil, coarse salt. The one Romans eat walking.</span></li>
+          <li class="item"><span class="n">Rossa</span><span class="lead"></span><span class="p">3.40</span><span class="d">Tomato cooked down on the dough, a little oregano.</span></li>
+          <li class="item"><span class="n">Patate e rosmarino</span><span class="lead"></span><span class="p">3.80</span><span class="d">Potato sliced thin as paper, rosemary, pepper.</span></li>
+          <li class="item"><span class="n">Fiori di zucca e alici</span><span class="lead"></span><span class="p">4.60</span><span class="d">Zucchini flowers, anchovy, mozzarella. In season.</span></li>
+          <li class="item"><span class="n">Mortadella e pistacchio</span><span class="lead"></span><span class="p">4.90</span><span class="d">Bianca split warm and filled to order.</span></li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3><b>Pane</b><span class="mono">by the loaf</span></h3>
+        <ul>
+          <li class="item"><span class="n">Casereccio, 1 kg</span><span class="lead"></span><span class="p">11.00</span><span class="d">Country loaf, dark crust, open crumb. Keeps four days.</span></li>
+          <li class="item"><span class="n">Filone</span><span class="lead"></span><span class="p">8.50</span></li>
+          <li class="item"><span class="n">Ciriola</span><span class="lead"></span><span class="p">2.50</span><span class="d">The small Roman roll with a single cut down the middle.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-b">
+      <div class="group">
+        <h3><b>Dolci</b><span class="mono">each</span></h3>
+        <ul>
+          <li class="item"><span class="n">Maritozzo con la panna</span><span class="lead"></span><span class="p">6.50</span></li>
+          <li class="item"><span class="n">Crostata di visciole</span><span class="lead"></span><span class="p">5.50</span><span class="d">Sour cherry and ricotta, by the slice.</span></li>
+          <li class="item"><span class="n">Bombolone</span><span class="lead"></span><span class="p">4.00</span></li>
+          <li class="item"><span class="n">Ciambelline al vino</span><span class="lead"></span><span class="p">3.00</span><span class="d">Per 100 g. For dipping.</span></li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3><b>Caff&egrave;</b><span class="mono">al banco</span></h3>
+        <ul>
+          <li class="item"><span class="n">Espresso</span><span class="lead"></span><span class="p">3.00</span></li>
+          <li class="item"><span class="n">Cappuccino</span><span class="lead"></span><span class="p">4.75</span><span class="d">Before eleven, if you want to be Roman about it.</span></li>
+          <li class="item"><span class="n">Shakerato</span><span class="lead"></span><span class="p">5.50</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="foot mono">Prices in Canadian dollars. The counter changes with the season.</p>
+  </section>
+
+  <!-- V. Le mani -->
+  <section class="scene mani" aria-labelledby="t-mani">
+    <figure class="photo">
+      <img src="https://images.pexels.com/photos/8902017/pexels-photo-8902017.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Hands kneading dough on a floured board" loading="lazy">
+      <figcaption class="mono">Dough for pizza bianca, 05:40</figcaption>
+    </figure>
+    <div class="txt">
+      <p class="mono">Le mani</p>
+      <h2 id="t-mani" class="disp" data-rv>Shaped by hand before sunrise.</h2>
+      <p data-rv>Every tray is stretched by hand, so no two slices come out quite the same size. That is how it should be.</p>
+    </div>
+  </section>
+
+  <!-- VI. Sera -->
+  <section class="scene sera" id="sera" aria-labelledby="t-sera">
+    <h2 id="t-sera" class="disp" lang="it">Vieni.</h2>
+    <figure class="photo">
+      <img src="https://images.pexels.com/photos/13971275/pexels-photo-13971275.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="People walking along a street at night" loading="lazy">
+      <figcaption class="mono">Sera</figcaption>
+    </figure>
+    <div class="hours">
+      <span class="mono lbl">Orari</span>
+      <dl>
+        <div><dt>Tue&thinsp;&ndash;&thinsp;Fri</dt><dd>7:00&thinsp;&ndash;&thinsp;16:00</dd></div>
+        <div><dt>Sat&thinsp;&ndash;&thinsp;Sun</dt><dd>7:30&thinsp;&ndash;&thinsp;15:00</dd></div>
+        <div><dt>Monday</dt><dd lang="it">chiuso</dd></div>
+      </dl>
+    </div>
+    <p class="where"><span class="mono lbl">Dove</span>Upper Beaches<br>Toronto, Ontario</p>
+    <div class="go">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Anima%20Romana%20Bakery%20Toronto" target="_blank" rel="noopener">Directions&nbsp;&#8599;</a>
+      <a href="https://www.instagram.com/animaromanabakery/" target="_blank" rel="noopener">Instagram&nbsp;&#8599;</a>
+    </div>
+    <footer class="mono">
+      <span>&copy; 2026 Anima Romana</span>
+      <span>Photos: Pexels</span>
+      <span class="push">This site uses no cookies and no trackers.</span>
+    </footer>
+  </section>
+</main>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+/* Fonts: Cormorant Garamond, Libre Caslon Text, IBM Plex Mono — SIL Open Font License 1.1 */
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:300;font-display:swap;src:url("../fonts/cormorant-garamond-300-normal.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:300;font-display:swap;src:url("../fonts/cormorant-garamond-300-italic.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/cormorant-garamond-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/cormorant-garamond-400-italic.woff2") format("woff2")}
+@font-face{font-family:"Libre Caslon Text";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/libre-caslon-text-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Libre Caslon Text";font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/libre-caslon-text-400-italic.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/ibm-plex-mono-400-normal.woff2") format("woff2")}
+
+/* Six poster scenes on plain white. Every scene has its own anchor point:
+   I bottom-left over a photo cut at top/right, II photo cut by the right edge,
+   III horizontal drift, IV one dense column page, V tall photo breaking upward, VI word cut by the top edge. */
+:root{
+  --bg:#FFFFFF;
+  --ink:#2A221B;
+  --shade:#5C4F40;
+  --rule:#2A221B;
+  --vino:#7A2F22;
+  --f-display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --f-text:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --gl:max(16px, env(safe-area-inset-left, 0px));
+  --gr:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-text);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible{outline:1px solid currentColor;outline-offset:5px}
+p,h1,h2,h3,dl,dd,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;line-height:1.5;font-weight:400}
+.disp{font-family:var(--f-display);font-weight:300;line-height:.9;letter-spacing:-.012em;text-wrap:balance}
+.it{font-style:italic}
+
+.photo{position:absolute;overflow:visible}
+.photo img{width:100%;height:100%;object-fit:cover;background:#F2F2F0}
+.photo figcaption{position:absolute;left:0;top:calc(100% + 12px);white-space:nowrap;color:var(--shade)}
+
+.scene{position:relative;padding-left:var(--gl);padding-right:var(--gr)}
+
+[data-rv]{transition:transform 1.8s var(--ease)}
+[data-rv]:not(.in){transform:translateY(26px)}
+
+/* fixed corner navigation, inverts over photos */
+.corner{position:fixed;z-index:30;top:calc(env(safe-area-inset-top, 0px) + 22px);right:calc(env(safe-area-inset-right, 0px) + 24px);mix-blend-mode:difference;color:#FFFFFF;display:flex;gap:22px}
+.corner a{text-decoration:none;padding-block:2px}
+.corner a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* I. ALBA */
+.alba{min-height:max(600px, 100svh)}
+.alba .photo{top:0;left:24vw;right:0;height:84svh;overflow:hidden}
+.alba .photo img{animation:breathe 14s var(--ease) both}
+@keyframes breathe{from{transform:scale(1.07)}to{transform:scale(1)}}
+.alba h1{position:absolute;top:calc(env(safe-area-inset-top, 0px) + 26px);left:calc(var(--gl) + 1.6vw);font-family:var(--f-display);font-weight:400;font-size:14px;letter-spacing:.46em;line-height:1.55}
+.alba h1 span{display:block}
+.alba .where{position:absolute;left:calc(var(--gl) + 1.6vw);top:44svh;max-width:14ch;color:var(--shade)}
+.alba .hello{position:absolute;z-index:2;left:2.6vw;bottom:-.27em;font-size:min(23vw, 420px);font-style:italic;white-space:nowrap;line-height:1;color:var(--ink)}
+
+/* II. TRAVERTINO */
+.trav{min-height:max(700px, 114svh)}
+.trav .photo{top:13svh;right:-14vw;width:50vw;height:80%}
+.trav .lede{position:absolute;top:19svh;left:calc(var(--gl) + 6vw);max-width:31ch;font-size:15px}
+.trav .lede .mono{display:block;margin-bottom:22px;color:var(--shade)}
+.trav h2{position:absolute;left:calc(var(--gl) + 5.4vw);bottom:11svh;max-width:9ch;font-size:clamp(46px, 7.6vw, 132px)}
+
+/* III. IL FORNO */
+.forno{padding-left:0;padding-right:0}
+.forno .stick{position:sticky;top:0;height:100svh;overflow:hidden}
+.track{display:flex;height:100%;width:max-content;will-change:transform}
+.track > *{position:relative;flex:none}
+.f-intro{width:36vw;padding-left:max(16px, calc(env(safe-area-inset-left, 0px) + 7vw));display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:13svh;gap:22px}
+.f-intro p.disp{font-size:clamp(30px, 3.4vw, 54px);max-width:12ch}
+.f-oven{width:60vw;height:74%;align-self:flex-end;margin-left:3vw}
+.f-oven .photo,.f-flour .photo,.f-bianca .photo{inset:0}
+.f-oven figcaption{top:auto;bottom:calc(100% + 12px)}
+.f-times{width:27vw;padding:15svh 0 0 4.5vw;display:flex;flex-direction:column;gap:20px}
+.f-times li{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:14px;font-size:14px;max-width:34ch;line-height:1.5}
+.f-times time{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;font-variant-numeric:tabular-nums;color:var(--vino);padding-top:2px}
+.f-flour{width:21vw;height:56%;margin-top:10svh;margin-left:2vw}
+.f-wait{padding:0 7vw 0 9vw;display:flex;align-items:flex-end;padding-bottom:19svh}
+.f-wait p{font-size:clamp(64px, 10.5vw, 190px);white-space:nowrap}
+.f-bianca{width:24vw;height:100%}
+.f-bianca figcaption{left:auto;right:calc(100% + 18px);top:auto;bottom:22px;writing-mode:vertical-rl;transform:rotate(180deg)}
+.f-tail{width:12vw}
+
+/* IV. IL BANCO */
+.banco{padding-block:16svh 15svh;display:grid;grid-template-columns:7vw minmax(0,6.4fr) 6vw minmax(0,3.6fr) 5vw;align-items:start}
+.banco header{grid-column:2 / 5;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:9svh;flex-wrap:wrap}
+.banco h2{font-size:clamp(56px, 8vw, 140px);font-style:italic}
+.banco header .note{max-width:34ch;font-size:14px;color:var(--shade);padding-bottom:10px}
+.col-a{grid-column:2}
+.col-b{grid-column:4;margin-top:24svh}
+.group + .group{margin-top:56px}
+.group h3{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:6px}
+.group h3 .mono{font-size:10.5px;color:var(--shade);letter-spacing:.12em}
+.group h3 b{font-family:var(--f-display);font-weight:400;font-size:28px;letter-spacing:0}
+.item{display:grid;grid-template-columns:auto minmax(12px,1fr) auto;column-gap:10px;align-items:baseline;padding-block:9px 7px}
+.item .n{font-size:16px}
+.item .lead{border-bottom:1px dotted rgba(42,34,27,.42);transform:translateY(-4px)}
+.item .p{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums}
+.item .d{grid-column:1 / -1;font-style:italic;font-size:13px;color:var(--shade);line-height:1.45;max-width:46ch}
+.banco .foot{grid-column:2 / 5;margin-top:10svh;color:var(--shade)}
+
+/* V. LE MANI */
+.mani{min-height:max(740px, 122svh)}
+.mani .photo{left:14vw;top:-10svh;width:34vw;height:calc(100% - 4svh);z-index:2}
+.mani .photo figcaption{top:auto;bottom:-30px}
+.mani .txt{position:absolute;z-index:3;top:16svh;right:calc(var(--gr) + 6vw);width:min(33vw, 470px)}
+.mani .txt .mono{color:var(--shade)}
+.mani h2{font-size:clamp(40px, 5.8vw, 104px);font-style:italic;margin:30px 0 34px -13vw;max-width:9ch;mix-blend-mode:multiply}
+.mani .txt p:not(.mono){font-size:15px;max-width:34ch}
+
+/* VI. SERA */
+.sera{min-height:max(720px, 112svh);overflow:hidden}
+.sera h2{position:absolute;top:-.17em;left:2.6vw;font-size:min(26vw, 500px);font-style:italic;line-height:1;white-space:nowrap;z-index:2}
+.sera .photo{top:16svh;right:-7vw;width:31vw;bottom:72px;overflow:hidden}
+.sera .photo figcaption{left:auto;right:calc(100% + 16px);top:auto;bottom:0;writing-mode:vertical-rl;transform:rotate(180deg)}
+.sera .where{position:absolute;left:calc(var(--gl) + 7vw);bottom:17svh;font-family:var(--f-display);font-size:clamp(26px, 2.7vw, 42px);line-height:1.12}
+.sera .mono.lbl{display:block;color:var(--shade);margin-bottom:14px}
+.sera .hours{position:absolute;left:38vw;top:47svh;font-size:14px}
+.sera .hours dl div{display:grid;grid-template-columns:6.5em auto;gap:24px;padding-block:5px;font-variant-numeric:tabular-nums}
+.sera .hours dt{color:var(--shade)}
+.sera .go{position:absolute;left:38vw;bottom:17svh;display:flex;gap:30px}
+.sera .go a{font-style:italic;font-size:clamp(20px, 1.8vw, 26px);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.sera .go a:hover{color:var(--vino)}
+.sera footer{position:absolute;left:calc(var(--gl) + 6px);right:calc(var(--gr) + 6px);bottom:calc(env(safe-area-inset-bottom, 0px) + 22px);display:flex;gap:28px;flex-wrap:wrap;color:var(--shade);font-size:10px}
+.sera footer .push{margin-left:auto}
+
+/* phones and narrow tablets: same scenes, re-anchored */
+@media (max-width: 820px){
+  .corner{gap:16px}
+  .alba .photo{left:18vw;height:72svh}
+  .alba h1{font-size:12px;letter-spacing:.36em}
+  .alba .where{top:auto;bottom:calc(23vw * .95);left:var(--gl)}
+  .trav{display:flex;flex-direction:column;gap:56px;padding-block:16svh 14svh;min-height:0}
+  .trav .lede,.trav h2,.trav .photo{position:relative;top:auto;left:auto;right:auto;bottom:auto}
+  .trav .photo{width:100vw;height:62svh;align-self:flex-end;margin-right:-30vw;margin-bottom:28px}
+  .trav h2{max-width:8ch}
+  .forno .stick{position:static;height:auto;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity}
+  .track{height:78svh;transform:none!important}
+  .track > *{scroll-snap-align:start}
+  .f-intro{width:82vw;padding-right:16px}
+  .f-oven{width:86vw}
+  .f-times{width:78vw;padding-left:8vw}
+  .f-flour{width:56vw}
+  .f-bianca{width:60vw}
+  .f-tail{width:8vw}
+  .banco{grid-template-columns:minmax(0,1fr);padding-block:14svh 12svh}
+  .banco header,.col-a,.col-b,.banco .foot{grid-column:1}
+  .col-b{margin-top:56px}
+  .mani{min-height:0;padding-block:0 14svh;display:flex;flex-direction:column}
+  .mani .photo{position:relative;left:auto;top:auto;width:80vw;height:88svh;margin-left:calc(-1 * var(--gl))}
+  .mani .txt{position:relative;top:auto;right:auto;width:auto;margin-top:-16svh;align-self:flex-end;max-width:30ch}
+  .mani h2{margin-left:-26vw;max-width:8ch}
+  .sera{min-height:0;display:flex;flex-direction:column;gap:44px;padding-block:calc(26vw + 40px) 90px}
+  .sera .photo,.sera .where,.sera .hours,.sera .go{position:relative;top:auto;left:auto;right:auto;bottom:auto}
+  .sera .photo{width:70vw;height:70svh;align-self:flex-end;margin-right:calc(-1 * var(--gr))}
+  .sera .photo figcaption{right:auto;left:0;top:calc(100% + 12px);bottom:auto;writing-mode:horizontal-tb;transform:none}
+  .sera .go{gap:24px}
+}
+@media (prefers-reduced-motion: reduce){
+  .alba .photo img{animation:none}
+  [data-rv]{transition:none}
+  [data-rv]:not(.in){transform:none}
+}
